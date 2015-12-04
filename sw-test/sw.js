@@ -1,5 +1,5 @@
 this.addEventListener('install', function(event) {
-  
+
   event.waitUntil(
     caches.open('v4').then(function(cache) {
       return cache.addAll([
@@ -31,4 +31,21 @@ this.addEventListener('fetch', function(event) {
   }).catch(function() {
     return caches.match('/sw-test/gallery/myLittleVader.jpg');
   }));
+});
+
+this.addEventListener('activate', function(event) {
+  var cacheList = ['v4'];
+
+  event.waitUntil(
+    caches.keys(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          if (cacheList.indexOf(cacheName) == -1) {
+            return caches.delete(cacheName)
+          }
+        });
+      );
+    });
+  );
+  
 });
