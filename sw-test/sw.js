@@ -1,5 +1,6 @@
+console.log('sw')
 this.addEventListener('install', function(event) {
-
+  console.log('install')
   event.waitUntil(
     caches.open('v4').then(function(cache) {
       return cache.addAll([
