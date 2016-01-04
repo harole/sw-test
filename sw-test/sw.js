@@ -1,3 +1,4 @@
+console.log('new')
 this.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open('v4').then(function(cache) {
