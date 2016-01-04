@@ -33,19 +33,19 @@ this.addEventListener('fetch', function(event) {
   }));
 });
 
-this.addEventListener('activate', function(event) {
-  var cacheList = ['v5'];
+// this.addEventListener('activate', function(event) {
+//   var cacheList = ['v5'];
 
-  event.waitUntil(
-    caches.keys(function(cacheNames) {
-      return Promise.all(
-        cacheNames.map(function(cacheName) {
-          if (cacheList.indexOf(cacheName) == -1) {
-            return caches.delete(cacheName)
-          }
-        });
-      );
-    });
-  );
+//   event.waitUntil(
+//     caches.keys(function(cacheNames) {
+//       return Promise.all(
+//         cacheNames.map(function(cacheName) {
+//           if (cacheList.indexOf(cacheName) == -1) {
+//             return caches.delete(cacheName)
+//           }
+//         });
+//       );
+//     });
+//   );
   
-});
+// });
