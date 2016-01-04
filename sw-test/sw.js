@@ -1,7 +1,7 @@
 console.log('new')
 this.addEventListener('install', function(event) {
   event.waitUntil(
-    caches.open('v4').then(function(cache) {
+    caches.open('v5').then(function(cache) {
       return cache.addAll([
         '/sw-test/',
         '/sw-test/index.html',
@@ -24,7 +24,7 @@ this.addEventListener('fetch', function(event) {
     return fetch(event.request);
   }).then(function(r) {
     response = r;
-    caches.open('v4').then(function(cache) {
+    caches.open('v5').then(function(cache) {
       cache.put(event.request, response);
     });
     return response.clone();
@@ -34,7 +34,7 @@ this.addEventListener('fetch', function(event) {
 });
 
 this.addEventListener('activate', function(event) {
-  var cacheList = ['v4'];
+  var cacheList = ['v5'];
 
   event.waitUntil(
     caches.keys(function(cacheNames) {
