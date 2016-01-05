@@ -42,7 +42,7 @@ this.addEventListener('activate', function(event) {
           if (cacheList.indexOf(cacheName) == -1) {
             return caches.delete(cacheName)
           }
-        });
+        })
       );
     });
   );
