@@ -44,7 +44,7 @@ this.addEventListener('activate', function(event) {
           }
         })
       );
-    });
+    })
   );
   
 });
